@@ -19,7 +19,7 @@ class List {
 	Node* current;
 	int size = 0;
 
-	T findElement(Node* next, T value) {
+	T findElement(Node* next, T value) { // find index by value
 		if (next->value == value) {
 			return next->index;
 		}
@@ -28,7 +28,7 @@ class List {
 		}
 	}
 
-	Node* findElementPtr(Node* prev, Node* next, T value) {
+	Node* findElementPtr(Node* prev, Node* next, T value) { // remove by value
 		if (next->value == value) {
 			prev->next = next->next;
 
@@ -47,7 +47,7 @@ class List {
 		}
 	}
 
-	Node* findIndexElementPtr(Node* prev, Node* next, int value) {
+	Node* findIndexElementPtr(Node* prev, Node* next, int value) { // remove by index
 		if (next->index == value) {
 			prev->next = next->next;
 
@@ -66,7 +66,7 @@ class List {
 		}
 	}
 
-	Node* findElementPtrValue(Node* next, T value) {
+	Node* findElementPtrValue(Node* next, T value) { // find element by value
 		if (next->value == value) {
 			return next;
 		}
@@ -80,7 +80,7 @@ public:
 		this->current = nullptr;
 	}
 
-	void append(T value) {
+	void append(T value) { // add
 		if (size == 0) {
 			this->current = new Node(value, 0);
 			size++;
@@ -97,7 +97,7 @@ public:
 		size++;
 	}
 
-	T getByValue(T value) {
+	T getByValue(T value) { // find by value
 		if (current->value == value) {
 			return current->index;
 		}
@@ -106,7 +106,7 @@ public:
 		}
 	}
 
-	Node* remove(T value) {
+	Node* remove(T value) { // remove by value
 		if (current->value == value) {
 			return current;
 		}
@@ -115,7 +115,7 @@ public:
 		}
 	}
 
-	Node* removeByIndex(int value) {
+	Node* removeByIndex(int value) { // remove by index
 		if (current->index == value) {
 			return current;
 		}
@@ -124,7 +124,7 @@ public:
 		}
 	}
 
-	Node * getNext(Node * element){
+	Node * getNext(Node * element){ // getr next element from choosen
 		if (element->next != nullptr) {
 			return element->next;
 		}
@@ -133,7 +133,7 @@ public:
 		}
 	}
 
-	Node* getElement(T value) {
+	Node* getElement(T value) { // get element by value
 		if (current->value == value) {
 			return current;
 		}
@@ -142,7 +142,7 @@ public:
 		}
 	}
 
-	Node* pushBack(T value) {
+	Node* pushBack(T value) { // insert element into start
 		Node* newElement = new Node(value, 0);
 		Node* temp = current;
 		while (temp != nullptr) {
@@ -197,6 +197,5 @@ int main()
 	// push_back()  +
 	// insert() by index
 	// pop_back()
-	// sort()
 	// reverse()
 }
